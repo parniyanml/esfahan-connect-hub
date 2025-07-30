@@ -1,35 +1,42 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  NavigationMenu, 
-  NavigationMenuContent, 
-  NavigationMenuItem, 
-  NavigationMenuLink, 
-  NavigationMenuList, 
-  NavigationMenuTrigger 
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const advertiserMenuItems = [
-    { title: "رزرو تبلیغ", href: "/order", description: "سفارش‌گیری تبلیغات" },
-    { title: "مشاهده ناشران", href: "/publishers", description: "لیست ناشران فعال" },
-    { title: "نحوه کار", href: "/how-it-works", description: "راهنمای گام به گام تبلیغ‌دهندگان" },
-    { title: "تعرفه‌ها", href: "/pricing", description: "تعرفه‌های پایه و توضیحات" },
-    { title: "نمونه کارها", href: "/portfolio", description: "گالری نمونه کارهای ناشران" },
-  ];
-
-  const publisherMenuItems = [
-    { title: "مزایای همکاری", href: "/benefits", description: "چرا در اصفهان بنر لیست شوید" },
-    { title: "ثبت کانال", href: "/register-channel", description: "فرم ثبت‌نام ناشر" },
-  ];
-
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  const advertiserMenuItems = [{
+    title: "رزرو تبلیغ",
+    href: "/order",
+    description: "سفارش‌گیری تبلیغات"
+  }, {
+    title: "مشاهده ناشران",
+    href: "/publishers",
+    description: "لیست ناشران فعال"
+  }, {
+    title: "نحوه کار",
+    href: "/how-it-works",
+    description: "راهنمای گام به گام تبلیغ‌دهندگان"
+  }, {
+    title: "تعرفه‌ها",
+    href: "/pricing",
+    description: "تعرفه‌های پایه و توضیحات"
+  }, {
+    title: "نمونه کارها",
+    href: "/portfolio",
+    description: "گالری نمونه کارهای ناشران"
+  }];
+  const publisherMenuItems = [{
+    title: "مزایای همکاری",
+    href: "/benefits",
+    description: "چرا در اصفهان بنر لیست شوید"
+  }, {
+    title: "ثبت کانال",
+    href: "/register-channel",
+    description: "فرم ثبت‌نام ناشر"
+  }];
+  return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         
         {/* Logo - Right side (start in RTL) */}
@@ -38,7 +45,7 @@ const Header = () => {
             <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
               <span className="text-white font-bold text-lg">ا</span>
             </div>
-            <span className="text-xl font-bold text-esfahan-blue">اصفهان بنر</span>
+            
           </a>
         </div>
 
@@ -47,12 +54,7 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList className="gap-6">
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  href="/" 
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
-                  صفحه اصلی
-                </NavigationMenuLink>
+                <NavigationMenuLink href="/" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">اصفهان بنر</NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -62,21 +64,16 @@ const Header = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4">
-                    {advertiserMenuItems.map((item) => (
-                      <li key={item.title}>
+                    {advertiserMenuItems.map(item => <li key={item.title}>
                         <NavigationMenuLink asChild>
-                          <a
-                            href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
+                          <a href={item.href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <div className="text-sm font-medium leading-none">{item.title}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               {item.description}
                             </p>
                           </a>
                         </NavigationMenuLink>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -88,48 +85,34 @@ const Header = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4">
-                    {publisherMenuItems.map((item) => (
-                      <li key={item.title}>
+                    {publisherMenuItems.map(item => <li key={item.title}>
                         <NavigationMenuLink asChild>
-                          <a
-                            href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
+                          <a href={item.href} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <div className="text-sm font-medium leading-none">{item.title}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               {item.description}
                             </p>
                           </a>
                         </NavigationMenuLink>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  href="/about" 
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
+                <NavigationMenuLink href="/about" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                   درباره ما
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  href="/contact" 
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
+                <NavigationMenuLink href="/contact" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                   تماس با ما
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink 
-                  href="/blog" 
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
+                <NavigationMenuLink href="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                   بلاگ
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -209,8 +192,6 @@ const Header = () => {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
