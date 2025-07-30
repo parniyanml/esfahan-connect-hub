@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Instagram, MessageCircle, TrendingUp, Users } from "lucide-react";
 const HeroSection = () => {
-  return <section className="relative bg-background py-20 lg:py-32">
+  return <section className="relative bg-gradient-hero py-20 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           
