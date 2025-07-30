@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import UserJourneySection from "@/components/UserJourneySection";
 import FeaturedPublisherSection from "@/components/FeaturedPublisherSection";
@@ -8,7 +7,6 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background font-primary" dir="rtl">
-      <Header />
       <main>
         <HeroSection />
         <UserJourneySection />
