@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Instagram, MessageCircle, TrendingUp, Users } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section className="relative bg-gradient-hero py-20 lg:py-32">
+  return <section className="relative bg-gradient-hero py-20 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           
@@ -50,7 +48,7 @@ const HeroSection = () => {
                 <Users className="h-6 w-6 text-esfahan-accent" />
               </div>
               <h3 className="font-semibold text-esfahan-blue">ناشران محلی</h3>
-              <p className="text-sm text-esfahan-gray">دسترسی به بهترین کانال‌های اصفهان</p>
+              <p className="text-sm text-esfahan-gray">دسترسی به بهترین رسانه‌های اصفهان</p>
             </div>
             
             <div className="text-center">
@@ -71,8 +69,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

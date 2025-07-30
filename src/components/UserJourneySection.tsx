@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Megaphone, Radio, CheckCircle, DollarSign, Target, BarChart3 } from "lucide-react";
-
 const UserJourneySection = () => {
-  return (
-    <section className="py-20 bg-background">
+  return <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-esfahan-blue mb-4">
@@ -23,9 +21,7 @@ const UserJourneySection = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-esfahan-accent/10 rounded-xl mb-4 mx-auto">
                 <Megaphone className="h-8 w-8 text-esfahan-accent" />
               </div>
-              <CardTitle className="text-2xl font-bold text-esfahan-blue">
-                من یک تبلیغ‌دهنده هستم
-              </CardTitle>
+              <CardTitle className="text-2xl font-bold text-esfahan-blue">تبلیغ دهنده هستید؟</CardTitle>
               <CardDescription className="text-base text-esfahan-gray">
                 کمپین تبلیغاتی خود را در بهترین کانال‌های محلی اصفهان راه‌اندازی کنید
               </CardDescription>
@@ -71,9 +67,7 @@ const UserJourneySection = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-esfahan-green/10 rounded-xl mb-4 mx-auto">
                 <Radio className="h-8 w-8 text-esfahan-green" />
               </div>
-              <CardTitle className="text-2xl font-bold text-esfahan-blue">
-                من یک صاحب کانال هستم
-              </CardTitle>
+              <CardTitle className="text-2xl font-bold text-esfahan-blue">صاحب رسانه هستید؟</CardTitle>
               <CardDescription className="text-base text-esfahan-gray">
                 کانال خود را لیست کنید و از تبلیغات کسب‌وکارهای محلی درآمد کسب کنید
               </CardDescription>
@@ -114,8 +108,6 @@ const UserJourneySection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default UserJourneySection;
