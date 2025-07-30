@@ -16,16 +16,16 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const advertiserMenuItems = [
-    { title: "نحوه کار", href: "/how-it-works", description: "راهنمای گام به گام" },
-    { title: "رزرو تبلیغ", href: "/order", description: "سفارش تبلیغ جدید" },
-    { title: "نمونه کارها", href: "/portfolio", description: "گالری نمونه کارها" },
-    { title: "تعرفه‌ها", href: "/pricing", description: "لیست قیمت‌ها" },
+    { title: "رزرو تبلیغ", href: "/order", description: "سفارش‌گیری تبلیغات" },
+    { title: "مشاهده ناشران", href: "/publishers", description: "لیست ناشران فعال" },
+    { title: "نحوه کار", href: "/how-it-works", description: "راهنمای گام به گام تبلیغ‌دهندگان" },
+    { title: "تعرفه‌ها", href: "/pricing", description: "تعرفه‌های پایه و توضیحات" },
+    { title: "نمونه کارها", href: "/portfolio", description: "گالری نمونه کارهای ناشران" },
   ];
 
   const publisherMenuItems = [
-    { title: "همکاری با ما", href: "/partnership", description: "شرایط همکاری" },
-    { title: "مزایای همکاری", href: "/benefits", description: "مزایا و درآمدزایی" },
-    { title: "ثبت کانال", href: "/register-channel", description: "ثبت کانال جدید" },
+    { title: "مزایای همکاری", href: "/benefits", description: "چرا در اصفهان بنر لیست شوید" },
+    { title: "ثبت کانال", href: "/register-channel", description: "فرم ثبت‌نام ناشر" },
   ];
 
   return (
@@ -57,7 +57,7 @@ const Header = () => {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-sm font-medium">
-                  برای تبلیغ‌دهندگان
+                  تبلیغ کنید
                   <ChevronDown className="mr-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -83,7 +83,7 @@ const Header = () => {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-sm font-medium">
-                  برای ناشران
+                  همکاری با ما
                   <ChevronDown className="mr-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -122,6 +122,15 @@ const Header = () => {
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                 >
                   تماس با ما
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink 
+                  href="/blog" 
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                >
+                  بلاگ
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -170,11 +179,29 @@ const Header = () => {
                 <div className="border-t pt-4">
                   <nav className="grid gap-2">
                     <a href="/" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">صفحه اصلی</a>
-                    <a href="/how-it-works" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">نحوه کار</a>
-                    <a href="/order" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">رزرو تبلیغ</a>
-                    <a href="/partnership" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">همکاری با ما</a>
+                    
+                    <div className="py-2">
+                      <p className="text-xs font-semibold text-muted-foreground px-2 mb-2">تبلیغ کنید</p>
+                      <div className="grid gap-1 pr-4">
+                        <a href="/order" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">رزرو تبلیغ</a>
+                        <a href="/publishers" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">مشاهده ناشران</a>
+                        <a href="/how-it-works" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">نحوه کار</a>
+                        <a href="/pricing" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">تعرفه‌ها</a>
+                        <a href="/portfolio" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">نمونه کارها</a>
+                      </div>
+                    </div>
+
+                    <div className="py-2">
+                      <p className="text-xs font-semibold text-muted-foreground px-2 mb-2">همکاری با ما</p>
+                      <div className="grid gap-1 pr-4">
+                        <a href="/benefits" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">مزایای همکاری</a>
+                        <a href="/register-channel" className="block px-2 py-1 text-sm hover:bg-accent rounded-md">ثبت کانال</a>
+                      </div>
+                    </div>
+
                     <a href="/about" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">درباره ما</a>
                     <a href="/contact" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">تماس با ما</a>
+                    <a href="/blog" className="block px-2 py-2 text-sm hover:bg-accent rounded-md">بلاگ</a>
                   </nav>
                 </div>
               </div>
