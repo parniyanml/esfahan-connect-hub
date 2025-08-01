@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Instagram, MessageCircle, TrendingUp, Users } from "lucide-react";
 import EitaIcon from "@/assets/eita-icon.svg";
+import HeroBackground from "@/assets/hero-background.jpg";
 const HeroSection = () => {
-  return <section className="relative bg-gradient-hero py-20 lg:py-32">
-      <div className="container mx-auto px-4">
+  return <section className="relative bg-gradient-hero py-20 lg:py-32 overflow-hidden">
+      {/* Background Image with very low opacity */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+        style={{ backgroundImage: `url(${HeroBackground})` }}
+      ></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           
           {/* Main Hero Content */}
