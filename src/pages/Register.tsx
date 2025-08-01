@@ -28,7 +28,7 @@ const Register = () => {
           {/* Greeting */}
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-foreground mb-2">
-              سلام، به جریان خوش آمدید
+              به اصفهان بنر خوش آمدید
             </h1>
             <p className="text-muted-foreground text-sm">
               برای ثبت نام شماره موبایل خود را وارد نمایید
