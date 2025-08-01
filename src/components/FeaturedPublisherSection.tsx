@@ -2,15 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Users, Eye, TrendingUp, MessageCircle, Instagram } from "lucide-react";
-
 const FeaturedPublisherSection = () => {
-  return (
-    <section className="py-20 bg-gradient-hero">
+  return <section className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-esfahan-blue mb-4">
-            با بهترین کانال‌های اصفهان تبلیغ کنید!
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-esfahan-blue mb-4">با بهترین رسانه‌های اصفهان تبلیغ کنید!</h2>
           <p className="text-lg text-esfahan-gray max-w-2xl mx-auto">
             دسترسی مستقیم به پرمخاطب‌ترین ناشران محلی اصفهان
           </p>
@@ -21,12 +17,8 @@ const FeaturedPublisherSection = () => {
           <Card className="shadow-large border-2 border-esfahan-accent/20 bg-white/80 backdrop-blur-sm">
             <CardHeader className="text-center pb-6">
               <div className="flex items-center justify-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/d08b00c8-bda9-45e0-8fdb-ef91ccd05d6c.png" 
-                    alt="اصفهان بنر" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-2xl">ا</span>
                 </div>
                 <div className="text-right">
                   <CardTitle className="text-3xl font-bold text-esfahan-blue">
@@ -123,8 +115,6 @@ const FeaturedPublisherSection = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FeaturedPublisherSection;
