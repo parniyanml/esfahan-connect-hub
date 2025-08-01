@@ -126,7 +126,7 @@ const Login = () => {
                 to="/register" 
                 className="text-primary hover:text-primary/80 transition-colors font-medium"
               >
-                ثبت نام در جریان
+                ثبت نام در اصفهان بنر
               </Link>
             </div>
             
