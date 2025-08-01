@@ -45,6 +45,13 @@ const UserJourneySection = () => {
                   </div>
                 </div>
                 
+                <div className="flex items-start gap-3">
+                  <Target className="h-5 w-5 text-esfahan-green mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-esfahan-blue">هدفمندی بالا</h4>
+                    <p className="text-sm text-esfahan-gray">دسترسی به مخاطبان محلی و مرتبط</p>
+                  </div>
+                </div>
                 
               </div>
 
