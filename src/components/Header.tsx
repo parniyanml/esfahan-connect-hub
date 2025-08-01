@@ -45,7 +45,7 @@ const Header = () => {
           <a href="/" className="flex items-center space-x-2 space-x-reverse">
             <div className="h-8 w-8 rounded-lg overflow-hidden">
               <img 
-                src="/src/assets/esfahan-banner-logo.png" 
+                src="/lovable-uploads/e76a2f2b-5546-4739-b5c2-d8e9ac2b5d9f.png" 
                 alt="اصفهان بنر" 
                 className="w-full h-full object-contain"
               />
