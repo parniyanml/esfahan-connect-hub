@@ -21,8 +21,12 @@ const FeaturedPublisherSection = () => {
           <Card className="shadow-large border-2 border-esfahan-accent/20 bg-white/80 backdrop-blur-sm">
             <CardHeader className="text-center pb-6">
               <div className="flex items-center justify-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-2xl">ا</span>
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/d08b00c8-bda9-45e0-8fdb-ef91ccd05d6c.png" 
+                    alt="اصفهان بنر" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="text-right">
                   <CardTitle className="text-3xl font-bold text-esfahan-blue">
