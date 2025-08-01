@@ -121,7 +121,7 @@ const Login = () => {
           {/* Footer Links */}
           <div className="mt-8 text-center space-y-4">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <span>عضو جریان نیستید؟</span>
+              <span>عضو اصفهان بنر نیستید؟</span>
               <Link 
                 to="/register" 
                 className="text-primary hover:text-primary/80 transition-colors font-medium"
