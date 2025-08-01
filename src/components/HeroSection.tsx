@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Instagram, MessageCircle, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowLeft, Instagram, MessageCircle, TrendingUp, Users } from "lucide-react";
+import EitaIcon from "@/assets/eita-icon.svg";
 const HeroSection = () => {
   return <section className="relative bg-gradient-hero py-20 lg:py-32">
       <div className="container mx-auto px-4">
@@ -27,7 +28,7 @@ const HeroSection = () => {
               </div>
               <div className="h-8 w-px bg-border"></div>
               <div className="flex items-center gap-2 text-esfahan-gray">
-                <Zap className="h-8 w-8 text-green-500" />
+                <img src={EitaIcon} alt="Eita" className="h-8 w-8" />
                 <span className="font-medium">ایتا</span>
               </div>
             </div>
