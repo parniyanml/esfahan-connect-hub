@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -127,9 +128,11 @@ const Header = () => {
               <LogIn className="mr-2 h-4 w-4" />
               ورود
             </Button>
-            <Button variant="hero" size="sm">
-              <UserPlus className="mr-2 h-4 w-4" />
-              ثبت‌نام
+            <Button variant="hero" size="sm" asChild>
+              <Link to="/register">
+                <UserPlus className="mr-2 h-4 w-4" />
+                ثبت‌نام
+              </Link>
             </Button>
           </div>
 
