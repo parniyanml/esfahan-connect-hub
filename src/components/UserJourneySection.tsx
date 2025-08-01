@@ -45,13 +45,7 @@ const UserJourneySection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
-                  <Target className="h-5 w-5 text-esfahan-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-esfahan-blue">دسترسی به اصفهان خبر</h4>
-                    <p className="text-sm text-esfahan-gray">تبلیغ در پرمخاطب‌ترین کانال خبری اصفهان</p>
-                  </div>
-                </div>
+                
               </div>
 
               <Button variant="hero" size="lg" className="w-full">

@@ -12,9 +12,7 @@ const HeroSection = () => {
               <span className="block text-esfahan-accent">اصفهان بنر</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-esfahan-gray max-w-2xl mx-auto leading-relaxed">
-              کسب‌وکارها و ناشران اصفهان را در اینستاگرام و تلگرام به هم متصل می‌کنیم
-            </p>
+            <p className="text-lg md:text-xl text-esfahan-gray max-w-2xl mx-auto leading-relaxed">کسب‌وکارها و ناشران اصفهان را در رسانه‌ها به هم متصل می‌کنیم</p>
 
             {/* Platform Icons */}
             <div className="flex items-center justify-center gap-6 my-8">
