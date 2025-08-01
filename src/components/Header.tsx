@@ -124,9 +124,11 @@ const Header = () => {
         {/* User Actions - Left side (end in RTL) */}
         <div className="flex items-center gap-2">
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="outline" size="sm">
-              <LogIn className="mr-2 h-4 w-4" />
-              ورود
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/login">
+                <LogIn className="mr-2 h-4 w-4" />
+                ورود
+              </Link>
             </Button>
             <Button variant="hero" size="sm" asChild>
               <Link to="/register">
