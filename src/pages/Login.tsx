@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { getSupabase, isSupabaseConfigured } from "@/lib/supabaseClient";
+import { supabase } from "@/integrations/supabase/client";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState(""); // mobile or email
@@ -14,29 +14,62 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  // SEO: title, description, canonical
+  useEffect(() => {
+    document.title = "ورود | اصفهان بنر";
+    const desc = "ورود به اصفهان بنر با ایمیل و رمز عبور";
+    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "description";
+      document.head.appendChild(meta);
+    }
+    meta.content = desc;
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = window.location.href;
+  }, []);
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) navigate("/");
+    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) navigate("/");
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      if (!isSupabaseConfigured) {
-        toast.error("Supabase پیکربندی نشده است. لطفاً از دکمه سبز Supabase پروژه را متصل کنید.");
+      const id = identifier.trim();
+      if (!id) {
+        toast.error("لطفاً ایمیل خود را وارد کنید.");
         return;
       }
-      const supabase = getSupabase();
+      if (!id.includes("@")) {
+        toast.info("فعلاً فقط ورود با ایمیل/رمز عبور فعال است.");
+        return;
+      }
 
-      if (identifier.includes("@")) {
-        const { error } = await supabase.auth.signInWithPassword({
-          email: identifier.trim(),
-          password: password,
-        });
-        if (error) {
-          toast.error(error.message);
-        } else {
-          toast.success("با موفقیت وارد شدید");
-          navigate("/");
-        }
+      const { error } = await supabase.auth.signInWithPassword({
+        email: id,
+        password,
+      });
+      if (error) {
+        toast.error(error.message);
       } else {
-        toast.info("ورود با تلفن/OTP به‌زودی اضافه می‌شود.");
+        toast.success("با موفقیت وارد شدید");
+        navigate("/");
       }
     } catch (err: any) {
       console.error("Login error:", err);
