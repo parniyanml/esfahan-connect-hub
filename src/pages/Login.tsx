@@ -3,29 +3,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { supabase } from "@/lib/supabaseClient";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState(""); // mobile or email
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", { identifier, password });
+    setIsLoading(true);
+    try {
+      if (identifier.includes("@")) {
+        const { error } = await supabase.auth.signInWithPassword({
+          email: identifier.trim(),
+          password: password,
+        });
+        if (error) {
+          toast.error(error.message);
+        } else {
+          toast.success("Logged in successfully");
+          navigate("/");
+        }
+      } else {
+        toast.info("Phone/OTP login will be available soon.");
+      }
+    } catch (err: any) {
+      console.error("Login error:", err);
+      toast.error("Login failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleLogin = () => {
-    // Handle Google login
-    console.log("Google login requested");
+    toast.info("Google login will be available soon.");
   };
 
   const handleOtpLogin = () => {
-    // Handle OTP login
-    console.log("OTP login requested");
+    toast.info("OTP login will be available soon.");
   };
-
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4" dir="rtl">
       <div className="w-full max-w-md">
@@ -89,9 +110,9 @@ const Login = () => {
             <Button 
               type="submit" 
               className="w-full bg-gradient-primary hover:opacity-90 text-white py-3 rounded-xl font-medium"
-              disabled={!identifier || !password}
+              disabled={!identifier || !password || isLoading}
             >
-              ورود
+              {isLoading ? "در حال ورود..." : "ورود"}
             </Button>
           </form>
 
