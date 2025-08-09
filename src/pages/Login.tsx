@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabaseClient";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState(""); // mobile or email
@@ -18,6 +18,12 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
+      if (!isSupabaseConfigured) {
+        toast.error("Supabase پیکربندی نشده است. لطفاً از دکمه سبز Supabase پروژه را متصل کنید.");
+        return;
+      }
+      const supabase = getSupabase();
+
       if (identifier.includes("@")) {
         const { error } = await supabase.auth.signInWithPassword({
           email: identifier.trim(),
@@ -26,20 +32,19 @@ const Login = () => {
         if (error) {
           toast.error(error.message);
         } else {
-          toast.success("Logged in successfully");
+          toast.success("با موفقیت وارد شدید");
           navigate("/");
         }
       } else {
-        toast.info("Phone/OTP login will be available soon.");
+        toast.info("ورود با تلفن/OTP به‌زودی اضافه می‌شود.");
       }
     } catch (err: any) {
       console.error("Login error:", err);
-      toast.error("Login failed. Please try again.");
+      toast.error("ورود ناموفق بود. دوباره تلاش کنید.");
     } finally {
       setIsLoading(false);
     }
   };
-
   const handleGoogleLogin = () => {
     toast.info("Google login will be available soon.");
   };
