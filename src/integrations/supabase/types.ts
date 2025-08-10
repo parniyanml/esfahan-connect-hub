@@ -14,6 +14,62 @@ export type Database = {
   }
   public: {
     Tables: {
+      placements: {
+        Row: {
+          availability: Json | null
+          city: string | null
+          created_at: string
+          id: string
+          lat: number | null
+          lng: number | null
+          name: string
+          photo_paths: string[] | null
+          price: number | null
+          publisher_id: string
+          size: string | null
+          status: Database["public"]["Enums"]["placement_status"]
+          updated_at: string
+        }
+        Insert: {
+          availability?: Json | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          lat?: number | null
+          lng?: number | null
+          name: string
+          photo_paths?: string[] | null
+          price?: number | null
+          publisher_id: string
+          size?: string | null
+          status?: Database["public"]["Enums"]["placement_status"]
+          updated_at?: string
+        }
+        Update: {
+          availability?: Json | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          lat?: number | null
+          lng?: number | null
+          name?: string
+          photo_paths?: string[] | null
+          price?: number | null
+          publisher_id?: string
+          size?: string | null
+          status?: Database["public"]["Enums"]["placement_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "placements_publisher_id_fkey"
+            columns: ["publisher_id"]
+            isOneToOne: false
+            referencedRelation: "publishers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -47,15 +103,80 @@ export type Database = {
         }
         Relationships: []
       }
+      publishers: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          logo_path: string | null
+          owner_id: string
+          phone: string | null
+          status: Database["public"]["Enums"]["publisher_status"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          logo_path?: string | null
+          owner_id: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["publisher_status"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          logo_path?: string | null
+          owner_id?: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["publisher_status"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _user_id: string
+          _role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "publisher" | "user"
+      placement_status: "draft" | "published" | "archived"
+      publisher_status: "pending" | "approved" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -182,6 +303,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "publisher", "user"],
+      placement_status: ["draft", "published", "archived"],
+      publisher_status: ["pending", "approved", "rejected"],
+    },
   },
 } as const
